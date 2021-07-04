@@ -1,0 +1,59 @@
+package javatpoint;
+
+public class ConvMatrixToArray {
+	
+	public static void convMatrixToArray(int[][] m)
+	{
+		int top=0,down=m.length-1,left=0,right=m.length-1,dir=0;
+		int[] s = new int[m.length*m.length];
+		
+		while(top<=down && left<=right)
+		{
+			int count=0;
+			
+			if(dir==0)
+			{
+				for(int i=left;i<=right;i++)
+				{
+					s[count++]=m[top][i];
+				}
+				top+=1;
+			}
+			
+			else if(dir==1)
+			{
+				for(int i=top;i<=down;i++)
+				{
+					s[count++]=m[right][i];
+				}
+				right-=1;
+			}
+			
+			else if(dir==2)
+			{
+				for(int i=right;i>=left;i--)
+				{
+					s[count++]=m[down][i];
+				}
+				down-=1;
+			}
+			else if(dir==3)
+			{
+				for(int i=down;i>=top;i--)
+				{
+					s[count]=m[left][i];
+				}
+				left+=1;
+			}
+			dir=(dir+1)%4;
+			
+		}
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[][] m = {{1,2,3},{4,5,6},{7,8,9}};
+		convMatrixToArray(m);
+	}
+
+}

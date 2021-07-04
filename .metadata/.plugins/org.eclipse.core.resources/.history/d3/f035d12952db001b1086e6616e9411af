@@ -1,0 +1,28 @@
+package java8feat;
+
+import java.util.Scanner;
+
+interface Addable {
+	void add(int a,int b);
+}
+
+public class LambdaExpressions {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter a");
+		int a = scan.nextInt();
+		System.out.println("Enter b");
+		int b = scan.nextInt();
+		
+		Addable ad = (int c,int d)->{
+			System.out.println(a+b);
+		};
+		
+		ad.add(a, b);
+		
+		scan.close();
+	}
+
+}

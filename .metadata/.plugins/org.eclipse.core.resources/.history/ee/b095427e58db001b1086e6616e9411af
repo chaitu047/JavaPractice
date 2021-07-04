@@ -1,0 +1,61 @@
+package java8feat;
+
+import java.util.Scanner;
+
+interface Addable {
+	
+	void add(int a,int b);
+	
+}
+
+interface AddStrings {
+	
+	void mergeStr(String a,String b);
+	
+}
+
+interface MulNum {
+	
+	int mulNum(int a,int b);
+	
+}
+
+interface StringReverse {
+	String addStr(String s);
+}
+
+public class LambdaExpressions {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter a");
+		int a = scan.nextInt();
+		System.out.println("Enter b");
+		int b = scan.nextInt();
+		
+		Addable ad = (int c,int d)->{
+			System.out.println(a+b);
+		};
+		
+		AddStrings adstr = (String s1, String s2) -> {
+			System.out.println(s1+s2);
+		};
+		
+		MulNum mul = (int c, int d)->{
+			return (c*d);
+		};
+		
+		StringReverse strrev = (String s)->{
+			return (new StringBuilder(s).reverse().toString());
+		};
+		
+		ad.add(a, b);
+		adstr.mergeStr("Chaitanya", "KLK");
+		System.out.println(mul.mulNum(a, b));
+		System.out.println(strrev.addStr("chaitanya"));
+		
+		scan.close();
+	}
+
+}

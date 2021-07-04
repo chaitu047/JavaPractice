@@ -260,13 +260,46 @@ class BinaryTree {
 	
 	public static TreeNode create()
 	{
+		System.out.println("Enter -1 to stop");
 		int x = scan.nextInt();
-		if(x!=-1)
+		if(x==-1)
 		{
-			int data = scan.nextInt();
-			return(new TreeNode(data));
+			return null;
 		}
+		root = new TreeNode(x);
+		System.out.println("Enter data into left node of tree");
+		root.left = insertNode(root.left);
+		System.out.println("Enter data into right node of tree");
+		root.right = insertNode(root.right);
+		scan.close();
 		return root;
+	}
+	
+	public static TreeNode insertNode(TreeNode node)
+	{
+		
+		int x = scan.nextInt();
+		if(x==-1)
+		{
+			return null;
+		}
+		node = new TreeNode(x);
+		System.out.println("Enter data into left node of tree");
+		node.left = insertNode(node.left);
+		System.out.println("Enter data into right node of tree");
+		node.right = insertNode(node.right);
+		return node;
+	}
+	
+	public static void traverseTree(TreeNode node)
+	{
+		if(node == null)
+		{
+			return;
+		}
+		traverseTree(node.left);
+		traverseTree(node.right);
+		System.out.println(node.data);
 	}
 	
 }
@@ -294,6 +327,7 @@ public class DataStructures {
 		sll.insertNodeAtPos(0, new Node(34));
 		sll.traverse();
 		*/
+		/*
 		CircularLinkedList cll = new CircularLinkedList();
 		cll.insertNode(new Node(0));
 		cll.insertNode(new Node(1));
@@ -304,6 +338,10 @@ public class DataStructures {
 		//cll.traverse();
 		cll.reverse(cll.head);
 		//cll.traverse();
+		*/
+		
+		BinaryTree.create();
+		BinaryTree.traverseTree(BinaryTree.root);
 		
 	}
 
