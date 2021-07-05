@@ -216,32 +216,20 @@ class CircularLinkedList {
 
 	public static void deleteAtLast() {
 		Node temp = head;
-		
-		if(temp.next==head)
-		{
-			deleteNodeAtFirst();
+
+		while (temp.next.next != null) {
+			temp = temp.next;
 		}
-		
-		else
-		{
-			
-			while (temp.next.next != head) {
-				temp = temp.next;
-			}
-			temp.next = head;
-			
-		}
+		temp.next = null;
 	}
 
 	public static void insertNodeAtFirst(Node n) {
-		
 		if (head == null) {
 			head = n;
 		} else {
 			n.next = head;
 			head = n;
 		}
-		
 	}
 
 	public static void insertNodeAtPos(int pos, Node n) {
@@ -331,19 +319,16 @@ public class DataStructures {
 		 * //sll.deleteAtLast(); sll.insertNodeAtPos(0, new Node(34));
 		 * sll.traverse();
 		 */
-		
-		  CircularLinkedList cll = new CircularLinkedList(); cll.insertNode(new Node(0));
-		  cll.insertNode(new Node(1));
-		  cll.insertNode(new Node(2));
-		  cll.insertNode(new Node(3)); 
-		  cll.insertNode(new Node(4));
-		  cll.insertNode(new Node(5));
-		  cll.traverse();
-		  System.out.println("_____________________________");
-		  cll.reverse(cll.head);
+		/*
+		 * CircularLinkedList cll = new CircularLinkedList(); cll.insertNode(new
+		 * Node(0)); cll.insertNode(new Node(1)); cll.insertNode(new Node(2));
+		 * cll.insertNode(new Node(3)); cll.insertNode(new Node(4));
+		 * cll.insertNode(new Node(5)); //cll.traverse(); cll.reverse(cll.head);
+		 * //cll.traverse();
+		 */
 
-		//BinaryTree.create();
-		//BinaryTree.traverseTree(BinaryTree.root);
+		BinaryTree.create();
+		BinaryTree.traverseTree(BinaryTree.root);
 
 	}
 

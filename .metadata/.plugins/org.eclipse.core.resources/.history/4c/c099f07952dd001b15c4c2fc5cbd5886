@@ -339,8 +339,8 @@ public class DataStructures {
 		  cll.insertNode(new Node(4));
 		  cll.insertNode(new Node(5));
 		  cll.traverse();
-		  System.out.println("_____________________________");
 		  cll.reverse(cll.head);
+		  cll.traverse();
 
 		//BinaryTree.create();
 		//BinaryTree.traverseTree(BinaryTree.root);
